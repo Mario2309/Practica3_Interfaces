@@ -15,27 +15,12 @@
         texto.SubItems.Add(TextAnioLanzamiento.Text)
         texto.SubItems.Add(ComboBoxGenero.Text)
 
-        ListaPelis.Items.Add(texto)
+        Form3.ListaPelis.Items.Add(texto)
         contadorPeliculas += 1
         MostrarContador.Text = contadorPeliculas.ToString()
     End Sub
 
-    Private Sub ListaPelis_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListaPelis.SelectedIndexChanged
-        Dim indexes As ListView.SelectedIndexCollection = Me.ListaPelis.SelectedIndices
-        Dim index As Integer
-        For Each index In indexes
-            MostrarContador.Text = Me.ListaPelis.Items(index).Text
-            Me.TextBoxTitulo.Text = Me.ListaPelis.Items(index).SubItems(1).Text
-            Me.TextBoxCalificacion.Text = Me.ListaPelis.Items(index).SubItems(2).Text
-            Me.TextBoxAutor.Text = Me.ListaPelis.Items(index).SubItems(3).Text
-            Me.TextAnioLanzamiento.Text = Me.ListaPelis.Items(index).SubItems(4).ToString()
-
-            limpiar()
-        Next
-
-    End Sub
-
-    Private Sub limpiar()
+    Public Sub limpiar()
         Me.TextBoxTitulo.Clear()
         Me.TextBoxCalificacion.Clear()
         Me.TextBoxAutor.Clear()
@@ -50,5 +35,15 @@
 
     Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
         limpiar()
+    End Sub
+
+    Private Sub btnConsultar_Click(sender As Object, e As EventArgs) Handles btnConsultar.Click
+        Me.Hide()
+        Form3.Show()
+    End Sub
+
+    Private Sub btnAgreGenero_Click(sender As Object, e As EventArgs) Handles btnAgreGenero.Click
+        Me.Hide()
+        Form4.Show()
     End Sub
 End Class
