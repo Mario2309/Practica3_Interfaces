@@ -65,4 +65,8 @@
         Me.Hide()
         Form4.Show()
     End Sub
+
+    Private Sub ComboBoxGenero_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxGenero.SelectedIndexChanged
+
+    End Sub
 End Class
