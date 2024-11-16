@@ -4,25 +4,44 @@
     Private Sub Form2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         MostrarContador.Text = contadorPeliculas.ToString()
         ComboBoxGenero.SelectedIndex = 0
+        ComboBoxCalificacion.SelectedIndex = 0
+    End Sub
+
+    Private Async Sub MostrarMensaje()
+        MessageBox.Show("No puedes crear contactos incompletos")
+        Await Task.Delay(3000) ' Espera 3 segundos
+        SendKeys.Send("{ESC}") ' Simula la tecla ESC para cerrar el MessageBox
     End Sub
 
     Private Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
-        Dim texto As New ListViewItem(MostrarContador.ToString())
-        texto.SubItems.Add(TextBoxTitulo.Text)
-        texto.SubItems.Add(TextBoxCalificacion.Text)
-        texto.SubItems.Add(TextBoxCalificacion.Text)
-        texto.SubItems.Add(TextBoxAutor.Text)
-        texto.SubItems.Add(TextAnioLanzamiento.Text)
-        texto.SubItems.Add(ComboBoxGenero.Text)
+        If String.IsNullOrEmpty(TextBoxTitulo.Text) Or
+            ComboBoxCalificacion.Text = "--" Or
+            String.IsNullOrEmpty(TextBoxAutor.Text) Or
+            String.IsNullOrEmpty(TextBoxAnio.Text) Or
+            ComboBoxGenero.Text = "--" Then
 
-        Form3.ListaPelis.Items.Add(texto)
-        contadorPeliculas += 1
-        MostrarContador.Text = contadorPeliculas.ToString()
+            MostrarMensaje()
+
+        Else
+
+            Dim texto As New ListViewItem(contadorPeliculas.ToString())
+            texto.SubItems.Add(TextBoxTitulo.Text)
+            texto.SubItems.Add(ComboBoxCalificacion.Text)
+            texto.SubItems.Add(TextBoxAutor.Text)
+            texto.SubItems.Add(TextBoxAnio.Text)
+            texto.SubItems.Add(ComboBoxGenero.Text)
+
+            Form3.ListaPelis.Items.Add(texto)
+            contadorPeliculas += 1
+            MostrarContador.Text = contadorPeliculas.ToString()
+
+            limpiar()
+        End If
     End Sub
 
     Public Sub limpiar()
         Me.TextBoxTitulo.Clear()
-        Me.TextBoxCalificacion.Clear()
+        Me.ComboBoxCalificacion.SelectedIndex = 0
         Me.TextBoxAutor.Clear()
         Me.TextBoxAnio.Clear()
         Me.ComboBoxGenero.SelectedIndex = 0

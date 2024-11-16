@@ -30,7 +30,6 @@ Partial Class Form2
         Me.TextGenero = New System.Windows.Forms.Label()
         Me.TxtCalificacion = New System.Windows.Forms.Label()
         Me.TextBoxTitulo = New System.Windows.Forms.TextBox()
-        Me.TextBoxCalificacion = New System.Windows.Forms.TextBox()
         Me.TextBoxAutor = New System.Windows.Forms.TextBox()
         Me.TextBoxAnio = New System.Windows.Forms.TextBox()
         Me.ComboBoxGenero = New System.Windows.Forms.ComboBox()
@@ -39,6 +38,7 @@ Partial Class Form2
         Me.btnAgreGenero = New System.Windows.Forms.Button()
         Me.btnSalir = New System.Windows.Forms.Button()
         Me.btnConsultar = New System.Windows.Forms.Button()
+        Me.ComboBoxCalificacion = New System.Windows.Forms.ComboBox()
         Me.SuspendLayout()
         '
         'TextContador
@@ -111,13 +111,6 @@ Partial Class Form2
         Me.TextBoxTitulo.Size = New System.Drawing.Size(124, 20)
         Me.TextBoxTitulo.TabIndex = 8
         '
-        'TextBoxCalificacion
-        '
-        Me.TextBoxCalificacion.Location = New System.Drawing.Point(133, 69)
-        Me.TextBoxCalificacion.Name = "TextBoxCalificacion"
-        Me.TextBoxCalificacion.Size = New System.Drawing.Size(124, 20)
-        Me.TextBoxCalificacion.TabIndex = 9
-        '
         'TextBoxAutor
         '
         Me.TextBoxAutor.Location = New System.Drawing.Point(351, 73)
@@ -186,11 +179,21 @@ Partial Class Form2
         Me.btnConsultar.Text = "Consultar"
         Me.btnConsultar.UseVisualStyleBackColor = True
         '
+        'ComboBoxCalificacion
+        '
+        Me.ComboBoxCalificacion.FormattingEnabled = True
+        Me.ComboBoxCalificacion.Items.AddRange(New Object() {"--", "⁜", "⁜⁜", "⁜⁜⁜", "⁜⁜⁜⁜", "⁜⁜⁜⁜⁜"})
+        Me.ComboBoxCalificacion.Location = New System.Drawing.Point(133, 73)
+        Me.ComboBoxCalificacion.Name = "ComboBoxCalificacion"
+        Me.ComboBoxCalificacion.Size = New System.Drawing.Size(123, 21)
+        Me.ComboBoxCalificacion.TabIndex = 18
+        '
         'Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(524, 209)
+        Me.Controls.Add(Me.ComboBoxCalificacion)
         Me.Controls.Add(Me.btnConsultar)
         Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.btnAgreGenero)
@@ -199,7 +202,6 @@ Partial Class Form2
         Me.Controls.Add(Me.ComboBoxGenero)
         Me.Controls.Add(Me.TextBoxAnio)
         Me.Controls.Add(Me.TextBoxAutor)
-        Me.Controls.Add(Me.TextBoxCalificacion)
         Me.Controls.Add(Me.TextBoxTitulo)
         Me.Controls.Add(Me.TxtCalificacion)
         Me.Controls.Add(Me.TextGenero)
@@ -223,7 +225,6 @@ Partial Class Form2
     Friend WithEvents TextGenero As Label
     Friend WithEvents TxtCalificacion As Label
     Friend WithEvents TextBoxTitulo As TextBox
-    Friend WithEvents TextBoxCalificacion As TextBox
     Friend WithEvents TextBoxAutor As TextBox
     Friend WithEvents TextBoxAnio As TextBox
     Friend WithEvents ComboBoxGenero As ComboBox
@@ -232,4 +233,5 @@ Partial Class Form2
     Friend WithEvents btnAgreGenero As Button
     Friend WithEvents btnSalir As Button
     Friend WithEvents btnConsultar As Button
+    Friend WithEvents ComboBoxCalificacion As ComboBox
 End Class

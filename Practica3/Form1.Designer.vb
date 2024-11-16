@@ -27,7 +27,7 @@ Partial Class Form1
         '
         'IrForm2
         '
-        Me.IrForm2.Location = New System.Drawing.Point(336, 266)
+        Me.IrForm2.Location = New System.Drawing.Point(119, 288)
         Me.IrForm2.Name = "IrForm2"
         Me.IrForm2.Size = New System.Drawing.Size(151, 78)
         Me.IrForm2.TabIndex = 0
@@ -38,7 +38,7 @@ Partial Class Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(368, 416)
         Me.Controls.Add(Me.IrForm2)
         Me.Name = "Form1"
         Me.Text = "Form1"
