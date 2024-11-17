@@ -1,10 +1,14 @@
-﻿Public Class Form2
+﻿Imports Microsoft.VisualBasic.FileIO
+
+Public Class Form2
     Dim contadorPeliculas As Integer = 1
+    Public Generos As String = Application.StartupPath & "\GENEROS.txt"
 
     Private Sub Form2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         MostrarContador.Text = contadorPeliculas.ToString()
         ComboBoxGenero.SelectedIndex = 0
         ComboBoxCalificacion.SelectedIndex = 0
+        AgregarDatosGeneros()
     End Sub
 
     Private Async Sub MostrarMensaje()
@@ -68,5 +72,23 @@
 
     Private Sub ComboBoxGenero_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxGenero.SelectedIndexChanged
 
+    End Sub
+
+    Public Sub AgregarDatosGeneros()
+        If My.Computer.FileSystem.FileExists(Generos) Then
+            Dim Fichero_leer As String = Generos
+            Dim Campos As String()
+
+            Dim Delimitador As String = "#"
+            Using Analizador_sintactico As New TextFieldParser(Fichero_leer)
+
+                Analizador_sintactico.SetDelimiters(Delimitador)
+                While Not Analizador_sintactico.EndOfData
+                    Campos = Analizador_sintactico.ReadFields
+                    ComboBoxGenero.Items.Add(Campos(0))
+                End While
+            End Using
+            My.Computer.FileSystem.DeleteFile(Generos)
+        End If
     End Sub
 End Class

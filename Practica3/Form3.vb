@@ -1,4 +1,6 @@
 ﻿Public Class Form3
+
+    Public ListaPeliculas As String = Application.StartupPath & "\PELICULAS.txt"
     Private Sub ListaPelis_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListaPelis.SelectedIndexChanged
         Dim indexes As ListView.SelectedIndexCollection = Me.ListaPelis.SelectedIndices
         For Each index As Integer In indexes
@@ -16,4 +18,6 @@
         Me.Hide()
         Form2.Show()
     End Sub
+
+
 End Class
