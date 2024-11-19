@@ -22,7 +22,9 @@ Partial Class Form1
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.IrForm2 = New System.Windows.Forms.Button()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.SuspendLayout()
         '
         'IrForm2
@@ -33,6 +35,10 @@ Partial Class Form1
         Me.IrForm2.TabIndex = 0
         Me.IrForm2.Text = "Ir"
         Me.IrForm2.UseVisualStyleBackColor = True
+        '
+        'Timer1
+        '
+        Me.Timer1.Interval = 1000
         '
         'Form1
         '
@@ -47,4 +53,5 @@ Partial Class Form1
     End Sub
 
     Friend WithEvents IrForm2 As Button
+    Friend WithEvents Timer1 As Timer
 End Class
